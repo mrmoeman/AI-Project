@@ -1,0 +1,34 @@
+////////////////////////////////////////////////////////////////////////////////
+// Filename: TextureClass.h
+////////////////////////////////////////////////////////////////////////////////
+#ifndef _TEXTURECLASS_H_
+#define _TEXTURECLASS_H_
+
+//////////////
+// INCLUDES //
+//////////////
+#include <d3d11.h>
+#include <d3dx11tex.h>
+
+////////////////////////////////////////////////////////////////////////////////
+// Class name: TextureClass
+////////////////////////////////////////////////////////////////////////////////
+class TextureClass
+{
+public:
+	TextureClass();
+	~TextureClass();
+
+	bool Init(ID3D11Device*, char*);
+	void Release();
+
+	ID3D11ShaderResourceView* GetTexture();
+	void SetTexture(ID3D11ShaderResourceView* texture);
+
+	void Render(ID3D11DeviceContext* deviceContext);
+
+private:
+	ID3D11ShaderResourceView* m_texture;
+};
+
+#endif
